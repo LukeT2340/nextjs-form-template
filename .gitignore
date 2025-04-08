@@ -1,0 +1,13 @@
+#ignore ide files
+/.idea/
+/.vscode/*
+# Enforce some settings at the workspace to ensure consistency
+# Workspace settings MUST ONLY be those which are generally applicable, not personal settings.
+# Key settings here are things like ensuring text files always end with an empty line, and no trailing spaces.
+!/.vscode/settings.json
+!/.vscode/extensions.json
+/.local-secrets/*
+
+/.env.override
+
+.DS_Store
