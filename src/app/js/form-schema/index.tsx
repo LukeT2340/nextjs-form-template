@@ -24,7 +24,7 @@ const schema = yup.object().shape({
 		.string()
 		.matches(/^\d{4}$/, "Postcode must be a 4-digit number")
 		.required("Postcode is required"),
-	recievePromotions: yup.boolean().required(),
+	receivePromotions: yup.boolean().required(),
 	agreeToTerms: yup
 		.boolean()
 		.oneOf([true], "You must accept the terms and conditions")

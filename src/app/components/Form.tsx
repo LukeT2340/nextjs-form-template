@@ -98,9 +98,9 @@ const Form: React.FC<Props> = ({ setSubmitted }) => {
 			<div className="max-w-[500px] mb-5 mx-auto">
 				<CheckBox
 					register={register}
-					field="recievePromotions"
+					field="receivePromotions"
 					text="I would like to hear the latest news and promotions from Contiki."
-					errorMessage={errors.recievePromotions?.message}
+					errorMessage={errors.receivePromotions?.message}
 				/>
 				<CheckBox
 					register={register}
