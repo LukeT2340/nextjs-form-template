@@ -1,4 +1,4 @@
-import { pgTable, varchar, boolean, serial, uuid } from "drizzle-orm/pg-core"
+import { pgTable, varchar, boolean, serial } from "drizzle-orm/pg-core"
 
 const formDataTable = pgTable("form_data", {
 	id: serial("id").primaryKey(),

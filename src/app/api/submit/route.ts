@@ -22,7 +22,6 @@ const addSubmission = async (data: FormData) => {
 export async function POST(req: Request) {
 	try {
 		const data: FormData = await req.json()
-		console.log(data)
 		if (
 			!config.allowMultipleSubmissions &&
 			(await submissionExists(data.email))
