@@ -15,7 +15,7 @@ const SectionOne: React.FC = () => {
 				{submitted ? (
 					<FormSubmitted key="submitted" />
 				) : (
-					<Form setSubmitted={setSubmitted} key="form" />
+					<Form setHasSubmitted={setSubmitted} key="form" />
 				)}
 			</AnimatePresence>
 			<ToastContainer />

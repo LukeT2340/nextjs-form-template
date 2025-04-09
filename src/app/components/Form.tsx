@@ -5,16 +5,19 @@ import { yupResolver } from "@hookform/resolvers/yup"
 import axios, { AxiosError } from "axios"
 import { motion } from "framer-motion"
 import { toast } from "react-toastify"
-import schema from "../js/form-schema"
+import schema, { FormData } from "../js/form-schema"
 import InputField from "./InputField"
 import CheckBox from "./CheckBox"
 import Dropdown from "./Dropdown"
+import { useState } from "react"
 
 interface Props {
-	setSubmitted: (arg0: boolean) => void
+	setHasSubmitted: (arg0: boolean) => void
 }
 
-const Form: React.FC<Props> = ({ setSubmitted }) => {
+const Form: React.FC<Props> = ({ setHasSubmitted }) => {
+	const [loading, setLoading] = useState<boolean>(false)
+
 	const {
 		register,
 		handleSubmit,
@@ -24,10 +27,14 @@ const Form: React.FC<Props> = ({ setSubmitted }) => {
 	})
 
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
-	const onSubmit = async (data: any) => {
+	const onSubmit = async (data: FormData) => {
+		if (loading) return
+
+		setLoading(true)
+
 		try {
 			await axios.post(`/api/submit`, data)
-			setSubmitted(true)
+			setHasSubmitted(true)
 		} catch (error) {
 			console.log(error)
 			const axiosError = error as AxiosError<{ message: string }>
@@ -36,6 +43,8 @@ const Form: React.FC<Props> = ({ setSubmitted }) => {
 					axiosError.message ||
 					"An error occurred"
 			)
+		} finally {
+			setLoading(false)
 		}
 	}
 
@@ -126,6 +135,7 @@ const Form: React.FC<Props> = ({ setSubmitted }) => {
 			<button
 				type="submit"
 				className="bg-theme-green cursor-pointer mb-5 mx-auto flex justify-center items-center gap-2 w-[180px] h-[45px] rounded-[23px] border"
+				disabled={loading}
 			>
 				<span className="font-extrabold uppercase text-[1.4rem] leading-[1.7rem]">
 					Submit
