@@ -17,8 +17,8 @@ const Dropdown: React.FC<Props> = ({
 	errorMessage,
 }) => {
 	return (
-		<div>
-			<div className="text-left w-full text-[1.3rem]">
+		<div className="text-left">
+			<div className="w-full text-[1.3rem]">
 				<label
 					htmlFor={field}
 					className="block cursor-pointer text-[1.4rem] mb-2"
