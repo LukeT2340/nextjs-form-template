@@ -1,14 +1,15 @@
-import { pgTable, varchar, boolean } from "drizzle-orm/pg-core"
+import { pgTable, varchar, boolean, serial, uuid } from "drizzle-orm/pg-core"
 
 const formDataTable = pgTable("form_data", {
+	id: serial("id").primaryKey(),
 	description: varchar("description", { length: 1000 }),
 	firstName: varchar("first_name", { length: 100 }),
 	lastName: varchar("last_name", { length: 100 }),
-	email: varchar("email", { length: 255 }).primaryKey(),
+	email: varchar("email", { length: 255 }),
 	mobile: varchar("mobile", { length: 15 }),
 	state: varchar("state", { length: 10 }),
 	postcode: varchar("postcode", { length: 4 }),
-	recievePromotions: boolean("recieve_promotions"),
+	receivePromotions: boolean("receive_promotions"),
 })
 
 export default formDataTable
