@@ -36,7 +36,7 @@ export async function POST(req: Request) {
 
 		return NextResponse.json(
 			{ message: "Form submitted successfully" },
-			{ status: 200 }
+			{ status: 201 }
 		)
 	} catch {
 		return NextResponse.json(

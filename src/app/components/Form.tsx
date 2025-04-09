@@ -51,6 +51,7 @@ const Form: React.FC<Props> = ({ setHasSubmitted }) => {
 	return (
 		<motion.form
 			onSubmit={handleSubmit(onSubmit)}
+			key="form"
 			className="bg-form-background rounded-[7px] text-center py-[40px] px-[75px]"
 			initial={{ opacity: 0, x: 400 }}
 			animate={{ opacity: 1, x: 0 }}
