@@ -1,5 +1,3 @@
-import { useEffect } from "react"
-import { toast } from "react-toastify"
 import { UseFormRegister } from "react-hook-form"
 import { FormData } from "../js/form-schema"
 
@@ -11,10 +9,6 @@ interface Props {
 }
 
 const CheckBox: React.FC<Props> = ({ register, field, text, errorMessage }) => {
-	useEffect(() => {
-		if (errorMessage) toast(errorMessage)
-	}, [errorMessage])
-
 	return (
 		<div>
 			<div className="flex items-start gap-7 text-left w-full text-[1.3rem]">
@@ -28,6 +22,9 @@ const CheckBox: React.FC<Props> = ({ register, field, text, errorMessage }) => {
 					{text}
 				</label>
 			</div>
+			{errorMessage && (
+				<p className="text-red-500 text-sm mt-1">{errorMessage}</p>
+			)}
 		</div>
 	)
 }

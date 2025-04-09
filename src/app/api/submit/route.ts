@@ -31,9 +31,15 @@ export async function POST(req: Request) {
 			{ status: 200 }
 		)
 	} catch (error: any) {
-		console.error("Error submitting form:", error)
+		console.error("Error submitting form:", error.code)
+		if (error.code === "23505")
+			return NextResponse.json(
+				{ message: "An entry has already been submitted for this email." },
+				{ status: 500 }
+			)
+
 		return NextResponse.json(
-			{ message: "Something went wrong", error: error.message },
+			{ message: "Something went wrong. Please try again." },
 			{ status: 500 }
 		)
 	}

@@ -1,11 +1,12 @@
 "use client"
 
-import { useForm } from "react-hook-form"
+import { SubmitHandler, useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
-import axios from "axios"
+import axios, { AxiosError } from "axios"
 import schema from "../js/form-schema"
 import InputField from "./InputField"
 import CheckBox from "./CheckBox"
+import { toast } from "react-toastify"
 
 interface Props {
 	setSubmitted: (arg0: boolean) => void
@@ -20,14 +21,15 @@ const Form: React.FC<Props> = ({ setSubmitted }) => {
 		resolver: yupResolver(schema),
 	})
 
-	const onSubmit = async (data: any) => {
+	const onSubmit: SubmitHandler<FormData> = async (data) => {
 		const backendUrl = process.env.NEXT_PUBLIC_API_URL
 
 		try {
 			await axios.post(`${backendUrl}/api/submit`, data)
 			setSubmitted(true)
 		} catch (error) {
-			alert("Submission failed")
+			const axiosError = error as AxiosError<{ message: string }>
+			toast(axiosError.response?.data?.message || "An error occurred")
 		}
 	}
 
