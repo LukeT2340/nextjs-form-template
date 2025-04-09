@@ -7,7 +7,7 @@ const FormSubmitted: React.FC = () => {
 		<Image
 			src="/assets/images/thank-you.png"
 			alt="Thank you"
-			width={565}
+			width={"565"}
 			height={482}
 		/>
 	)
