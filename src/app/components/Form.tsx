@@ -7,6 +7,7 @@ import schema from "../js/form-schema"
 import InputField from "./InputField"
 import CheckBox from "./CheckBox"
 import { toast } from "react-toastify"
+import Dropdown from "./Dropdown"
 
 interface Props {
 	setSubmitted: (arg0: boolean) => void
@@ -28,8 +29,13 @@ const Form: React.FC<Props> = ({ setSubmitted }) => {
 			await axios.post(`${backendUrl}/api/submit`, data)
 			setSubmitted(true)
 		} catch (error) {
+			console.log(error)
 			const axiosError = error as AxiosError<{ message: string }>
-			toast(axiosError.response?.data?.message || "An error occurred")
+			toast(
+				axiosError.response?.data?.message ||
+					axiosError.message ||
+					"An error occurred"
+			)
 		}
 	}
 
@@ -76,8 +82,9 @@ const Form: React.FC<Props> = ({ setSubmitted }) => {
 					field="mobile"
 					errorMessage={errors.mobile?.message}
 				/>
-				<InputField
+				<Dropdown
 					register={register}
+					options={["NSW", "QLD", "NT"]}
 					placeholder="State"
 					field="state"
 					errorMessage={errors.state?.message}
