@@ -42,6 +42,13 @@ const Form: React.FC<Props> = ({ setSubmitted }) => {
 					your plus one in Spain & Portugal?
 				</h2>
 			</div>
+			<InputField
+				register={register}
+				placeholder="25 words or less"
+				field="description"
+				errorMessage={errors.description?.message}
+				variant="large"
+			/>
 			<div className="grid mb-5 grid-cols-2 gap-y-4 gap-x-20">
 				<InputField
 					register={register}

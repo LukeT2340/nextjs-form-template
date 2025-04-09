@@ -1,0 +1,1 @@
+ALTER TABLE "form_data" ADD COLUMN "description" varchar(1000);

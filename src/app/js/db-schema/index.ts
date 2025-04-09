@@ -1,6 +1,7 @@
 import { pgTable, varchar, boolean } from "drizzle-orm/pg-core"
 
 const formDataTable = pgTable("form_data", {
+	description: varchar("description", { length: 1000 }),
 	firstName: varchar("first_name", { length: 100 }),
 	lastName: varchar("last_name", { length: 100 }),
 	email: varchar("email", { length: 255 }).primaryKey(),

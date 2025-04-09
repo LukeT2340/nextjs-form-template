@@ -1,6 +1,14 @@
 import * as yup from "yup"
 
 const schema = yup.object().shape({
+	description: yup
+		.string()
+		.test("word-count", "Description must be 25 words or less", (value) => {
+			if (!value) return false
+			const wordCount = value.trim().split(/\s+/).length
+			return wordCount <= 25
+		})
+		.required("Description is required"),
 	firstName: yup.string().required("First name is required"),
 	lastName: yup.string().required("Last name is required"),
 	email: yup.string().email("Invalid email").required("Email is required"),

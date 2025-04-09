@@ -12,6 +12,7 @@ export async function POST(req: Request) {
 			state,
 			postcode,
 			recievePromotions,
+			description,
 		} = await req.json()
 
 		await db.insert(formDataTable).values({
@@ -22,6 +23,7 @@ export async function POST(req: Request) {
 			state,
 			postcode,
 			recievePromotions,
+			description,
 		})
 
 		return NextResponse.json(
