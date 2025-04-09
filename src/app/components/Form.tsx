@@ -22,7 +22,7 @@ const Form: React.FC<Props> = ({ setSubmitted }) => {
 		resolver: yupResolver(schema),
 	})
 
-	// Need to set data type
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	const onSubmit = async (data: any) => {
 		const backendUrl = process.env.NEXT_PUBLIC_API_URL
 
