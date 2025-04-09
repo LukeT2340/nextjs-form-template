@@ -1,12 +1,12 @@
 "use client"
 
-import { SubmitHandler, useForm } from "react-hook-form"
+import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
 import axios, { AxiosError } from "axios"
+import { toast } from "react-toastify"
 import schema from "../js/form-schema"
 import InputField from "./InputField"
 import CheckBox from "./CheckBox"
-import { toast } from "react-toastify"
 import Dropdown from "./Dropdown"
 
 interface Props {
@@ -22,7 +22,8 @@ const Form: React.FC<Props> = ({ setSubmitted }) => {
 		resolver: yupResolver(schema),
 	})
 
-	const onSubmit: SubmitHandler<FormData> = async (data) => {
+	// Need to set data type
+	const onSubmit = async (data: any) => {
 		const backendUrl = process.env.NEXT_PUBLIC_API_URL
 
 		try {
