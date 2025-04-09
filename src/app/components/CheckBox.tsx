@@ -1,5 +1,5 @@
 import { UseFormRegister } from "react-hook-form"
-import { FormData } from "../../js/form-schema"
+import { FormData } from "../js/form-schema"
 
 interface Props {
 	register: UseFormRegister<FormData>

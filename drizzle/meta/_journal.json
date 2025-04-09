@@ -15,6 +15,13 @@
       "when": 1744160107353,
       "tag": "0001_great_zodiak",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1744161731338,
+      "tag": "0002_wonderful_black_cat",
+      "breakpoints": true
     }
   ]
 }

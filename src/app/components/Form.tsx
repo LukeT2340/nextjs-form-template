@@ -1,15 +1,17 @@
 "use client"
 
-import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
 import axios from "axios"
-import schema from "../../js/form-schema"
-import InputField from "../InputField"
-import CheckBox from "../CheckBox"
+import schema from "../js/form-schema"
+import InputField from "./InputField"
+import CheckBox from "./CheckBox"
 
-const Form: React.FC = () => {
-	const [submitted, setSubmitted] = useState<boolean>(false)
+interface Props {
+	setSubmitted: (arg0: boolean) => void
+}
+
+const Form: React.FC<Props> = ({ setSubmitted }) => {
 	const {
 		register,
 		handleSubmit,
@@ -24,7 +26,6 @@ const Form: React.FC = () => {
 		try {
 			await axios.post(`${backendUrl}/api/submit`, data)
 			setSubmitted(true)
-			alert("Form submitted successfully!")
 		} catch (error) {
 			alert("Submission failed")
 		}
