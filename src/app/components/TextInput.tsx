@@ -9,7 +9,7 @@ interface Props {
 	variant?: "regular" | "large"
 }
 
-const InputField: React.FC<Props> = ({
+const TextInput: React.FC<Props> = ({
 	register,
 	field,
 	placeholder,
@@ -40,4 +40,4 @@ const InputField: React.FC<Props> = ({
 	)
 }
 
-export default InputField
+export default TextInput

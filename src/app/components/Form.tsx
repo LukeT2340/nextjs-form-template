@@ -1,15 +1,15 @@
 "use client"
 
+import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
 import axios, { AxiosError } from "axios"
 import { motion } from "framer-motion"
 import { toast } from "react-toastify"
 import schema, { FormData } from "../js/form-schema"
-import InputField from "./InputField"
+import TextInput from "./TextInput"
 import CheckBox from "./CheckBox"
 import Dropdown from "./Dropdown"
-import { useState } from "react"
 
 interface Props {
 	setHasSubmitted: (arg0: boolean) => void
@@ -63,7 +63,7 @@ const Form: React.FC<Props> = ({ setHasSubmitted }) => {
 					your plus one in Spain & Portugal?
 				</h2>
 			</div>
-			<InputField
+			<TextInput
 				register={register}
 				placeholder="25 words or less"
 				field="description"
@@ -71,25 +71,25 @@ const Form: React.FC<Props> = ({ setHasSubmitted }) => {
 				variant="large"
 			/>
 			<div className="grid mb-5 grid-cols-2 gap-y-4 gap-x-20">
-				<InputField
+				<TextInput
 					register={register}
 					placeholder="First name"
 					field="firstName"
 					errorMessage={errors.firstName?.message}
 				/>
-				<InputField
+				<TextInput
 					register={register}
 					placeholder="Last name"
 					field="lastName"
 					errorMessage={errors.lastName?.message}
 				/>
-				<InputField
+				<TextInput
 					register={register}
 					placeholder="Email Address"
 					field="email"
 					errorMessage={errors.email?.message}
 				/>
-				<InputField
+				<TextInput
 					register={register}
 					placeholder="Mobile"
 					field="mobile"
@@ -102,7 +102,7 @@ const Form: React.FC<Props> = ({ setHasSubmitted }) => {
 					field="state"
 					errorMessage={errors.state?.message}
 				/>
-				<InputField
+				<TextInput
 					register={register}
 					placeholder="Postcode"
 					field="postcode"

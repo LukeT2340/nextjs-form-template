@@ -18,5 +18,4 @@ export default formDataTable
  * To update database structure, change it here then
  * yarn generate
  * npx drizzle-kit push
- *
  */
