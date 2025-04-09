@@ -1,0 +1,127 @@
+"use client"
+
+import { useState } from "react"
+import { useForm } from "react-hook-form"
+import { yupResolver } from "@hookform/resolvers/yup"
+import axios from "axios"
+import schema from "../../js/form-schema"
+import InputField from "../InputField"
+import CheckBox from "../CheckBox"
+
+const Form: React.FC = () => {
+	const [submitted, setSubmitted] = useState<boolean>(false)
+	const {
+		register,
+		handleSubmit,
+		formState: { errors },
+	} = useForm({
+		resolver: yupResolver(schema),
+	})
+
+	const onSubmit = async (data: any) => {
+		const backendUrl = process.env.NEXT_PUBLIC_API_URL
+
+		try {
+			await axios.post(`${backendUrl}/api/submit`, data)
+			setSubmitted(true)
+			alert("Form submitted successfully!")
+		} catch (error) {
+			alert("Submission failed")
+		}
+	}
+
+	return (
+		<form
+			onSubmit={handleSubmit(onSubmit)}
+			className="bg-form-background rounded-[7px] text-center py-[40px] px-[75px]"
+		>
+			<div className="max-w-[524px] mx-auto mb-10">
+				<h2>
+					In 25 words or less, tell us how you would spend a perfect day with
+					your plus one in Spain & Portugal?
+				</h2>
+			</div>
+			<div className="grid mb-5 grid-cols-2 gap-y-4 gap-x-20">
+				<InputField
+					register={register}
+					placeholder="First name"
+					field="firstName"
+					errorMessage={errors.firstName?.message}
+				/>
+				<InputField
+					register={register}
+					placeholder="Last name"
+					field="lastName"
+					errorMessage={errors.lastName?.message}
+				/>
+				<InputField
+					register={register}
+					placeholder="Email Address"
+					field="email"
+					errorMessage={errors.email?.message}
+				/>
+				<InputField
+					register={register}
+					placeholder="Mobile"
+					field="mobile"
+					errorMessage={errors.mobile?.message}
+				/>
+				<InputField
+					register={register}
+					placeholder="State"
+					field="state"
+					errorMessage={errors.state?.message}
+				/>
+				<InputField
+					register={register}
+					placeholder="Postcode"
+					field="postcode"
+					errorMessage={errors.postcode?.message}
+				/>
+			</div>
+			<div className="max-w-[500px] mb-5 mx-auto">
+				<CheckBox
+					register={register}
+					field="recievePromotions"
+					text="I would like to hear the latest news and promotions from Contiki."
+					errorMessage={errors.recievePromotions?.message}
+				/>
+				<CheckBox
+					register={register}
+					field="agreeToTerms"
+					text="I’ve read and accept the terms and conditions and the privacy policy."
+					errorMessage={errors.agreeToTerms?.message}
+				/>
+			</div>
+			<div className="max-w-[547px] mb-5 mx-auto text-[1rem] leading-[1.3rem] font-light">
+				<p>
+					At the time of entry, entrants can also opt-in to receive marketing
+					and promotional material from Contiki, ABN 46 121 XXX XXX. By
+					opting-in, entrants agree that their PI will be collected and handled
+					by Contiki and will be subject to their privacy policy which can be
+					viewed at contiki.com/en-au/resources/legalstuff
+				</p>
+			</div>
+			<button
+				type="submit"
+				className="bg-theme-green cursor-pointer mb-5 mx-auto flex justify-center items-center gap-2 w-[180px] h-[45px] rounded-[23px] border"
+			>
+				<span className="font-extrabold uppercase text-[1.4rem] leading-[1.7rem]">
+					Submit
+				</span>
+				<img src={"/assets/images/arrow.svg"} alt="Chevron right" />
+			</button>
+			<div className="max-w-[658px] text-[0.9rem] leading-[1.2rem] mx-auto">
+				<p>
+					Conditions apply, see www.9now.nine.com.au/contiki. AU residents 18+.
+					Entries close 11:59pm AEST 21/07/23 . Limit 1 entry per person. Draw
+					10:30am AEST 22/07/24 at Anisimoff Legal, G13, 3 Amy Close, Wyong NSW
+					2259. Winners published on website 24/07/24. Prizes: $25K AUD Contiki
+					Travel Gift Card. INSERT PERMIT NUMBERS
+				</p>
+			</div>
+		</form>
+	)
+}
+
+export default Form

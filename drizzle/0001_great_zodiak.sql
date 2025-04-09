@@ -1,0 +1,1 @@
+ALTER TABLE "form_data" DROP COLUMN "agree_to_terms";
