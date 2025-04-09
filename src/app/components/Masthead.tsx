@@ -4,8 +4,8 @@ import { useEffect } from "react"
 const Masthead = () => {
 	useEffect(() => {
 		const loadMasthead = async () => {
-			const module = await import("../js/masthead")
-			module.default()
+			const masthead = await import("../js/masthead")
+			masthead.default()
 		}
 
 		loadMasthead()
