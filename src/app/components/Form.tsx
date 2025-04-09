@@ -24,10 +24,8 @@ const Form: React.FC<Props> = ({ setSubmitted }) => {
 
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	const onSubmit = async (data: any) => {
-		const backendUrl = process.env.NEXT_PUBLIC_API_URL
-
 		try {
-			await axios.post(`${backendUrl}/api/submit`, data)
+			await axios.post(`/api/submit`, data)
 			setSubmitted(true)
 		} catch (error) {
 			console.log(error)
