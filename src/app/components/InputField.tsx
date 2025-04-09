@@ -1,5 +1,7 @@
 import { UseFormRegister } from "react-hook-form"
+import { toast } from "react-toastify"
 import { FormData } from "../js/form-schema"
+import { useEffect } from "react"
 
 interface Props {
 	register: UseFormRegister<FormData>
@@ -16,6 +18,10 @@ const InputField: React.FC<Props> = ({
 	errorMessage,
 	variant = "regular",
 }) => {
+	useEffect(() => {
+		if (errorMessage) toast(errorMessage)
+	}, [errorMessage])
+
 	return (
 		<div className="text-left">
 			<div className="text-[1.3rem] w-full">
@@ -33,9 +39,9 @@ const InputField: React.FC<Props> = ({
 					/>
 				)}
 			</div>
-			{errorMessage && (
+			{/* {errorMessage && (
 				<p className="text-red-500 text-sm mt-1">{errorMessage}</p>
-			)}
+			) */}
 		</div>
 	)
 }

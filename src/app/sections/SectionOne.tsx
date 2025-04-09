@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { AnimatePresence, motion } from "framer-motion"
+import { ToastContainer } from "react-toastify"
 import Form from "../components/Form"
 import FormSubmitted from "../components/FormSubmitted"
 
@@ -32,6 +33,7 @@ const SectionOne: React.FC = () => {
 					</motion.div>
 				)}
 			</AnimatePresence>
+			<ToastContainer />
 		</section>
 	)
 }
