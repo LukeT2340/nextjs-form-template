@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { AnimatePresence, motion } from "framer-motion"
+import { AnimatePresence } from "framer-motion"
 import { ToastContainer } from "react-toastify"
 import Form from "../components/Form"
 import FormSubmitted from "../components/FormSubmitted"
