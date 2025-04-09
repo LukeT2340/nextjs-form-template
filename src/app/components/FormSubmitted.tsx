@@ -1,9 +1,12 @@
+import Image from "next/image"
+
 const FormSubmitted: React.FC = () => {
 	return (
-		<img
+		<Image
 			src="/assets/images/thank-you.png"
 			alt="Thank you"
-			className="w-[565px]"
+			width={565}
+			height={482}
 		/>
 	)
 }
