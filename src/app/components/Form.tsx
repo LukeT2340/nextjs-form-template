@@ -3,6 +3,7 @@
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
 import axios, { AxiosError } from "axios"
+import { motion } from "framer-motion"
 import { toast } from "react-toastify"
 import schema from "../js/form-schema"
 import InputField from "./InputField"
@@ -39,9 +40,13 @@ const Form: React.FC<Props> = ({ setSubmitted }) => {
 	}
 
 	return (
-		<form
+		<motion.form
 			onSubmit={handleSubmit(onSubmit)}
 			className="bg-form-background rounded-[7px] text-center py-[40px] px-[75px]"
+			initial={{ opacity: 0, x: 400 }}
+			animate={{ opacity: 1, x: 0 }}
+			exit={{ opacity: 0, x: -400 }}
+			transition={{ duration: 0.6, ease: "easeInOut" }}
 		>
 			<div className="max-w-[524px] mx-auto mb-10">
 				<h2>
@@ -136,7 +141,7 @@ const Form: React.FC<Props> = ({ setSubmitted }) => {
 					Travel Gift Card. INSERT PERMIT NUMBERS
 				</p>
 			</div>
-		</form>
+		</motion.form>
 	)
 }
 

@@ -13,24 +13,9 @@ const SectionOne: React.FC = () => {
 		<section className="section-one h-[calc(100vh-44px)] flex items-center justify-center bg-cover bg-no-repeat bg-[url('/assets/images/form-background.jpg')]">
 			<AnimatePresence mode="wait">
 				{submitted ? (
-					<motion.div
-						key="formSubmitted"
-						initial={{ opacity: 1, x: 400 }}
-						animate={{ opacity: 1, x: 0 }}
-						transition={{ duration: 0.4 }}
-					>
-						<FormSubmitted />
-					</motion.div>
+					<FormSubmitted key="submitted" />
 				) : (
-					<motion.div
-						key="form"
-						initial={{ opacity: 0, x: 400 }}
-						animate={{ opacity: 1, x: 0 }}
-						exit={{ opacity: 0, x: -400 }}
-						transition={{ duration: 0.4 }}
-					>
-						<Form setSubmitted={setSubmitted} />
-					</motion.div>
+					<Form setSubmitted={setSubmitted} key="form" />
 				)}
 			</AnimatePresence>
 			<ToastContainer />
