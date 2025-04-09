@@ -39,7 +39,7 @@ export async function POST(req: Request) {
 			{ message: "Form submitted successfully" },
 			{ status: 200 }
 		)
-	} catch (error: any) {
+	} catch {
 		return NextResponse.json(
 			{ message: "Something went wrong. Please try again." },
 			{ status: 500 }
