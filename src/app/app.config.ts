@@ -1,6 +1,6 @@
 const config = {
   allowMultipleSubmissions: false,
-  closeDate: new Date("2025-04-10T16:25:00+10:00"),
+  closeDate: new Date("2025-04-11T16:25:00+10:00"),
   immersiveTitle: "BRAND - HEADING - SUBHEADING - MASTHEAD",
   immersiveDescription: "IMMERSIVE DESCRIPTION",
   canonical: "https://brandedcontent.smh.com.au/brand/heading",
