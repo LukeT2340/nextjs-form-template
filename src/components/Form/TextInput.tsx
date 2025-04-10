@@ -7,6 +7,8 @@ interface Props {
   placeholder: string
   errorMessage?: string
   variant?: "regular" | "large"
+  value?: string
+  maxWordLength?: number
 }
 
 const TextInput: React.FC<Props> = ({
@@ -15,11 +17,24 @@ const TextInput: React.FC<Props> = ({
   placeholder,
   errorMessage,
   variant = "regular",
+  value,
+  maxWordLength,
 }) => {
+  const wordCount = value?.trim().split(/\s+/).length
+
   return (
     <div className='text-left'>
       <div className='text-[1.3rem] w-full'>
-        <span className='font-extrabold block mb-2'>{placeholder}*</span>
+        <div className='w-full flex justify-between items-center'>
+          <span className='font-extrabold block mb-2'>{placeholder}*</span>
+          {maxWordLength && wordCount && (
+            <span
+              style={{ color: wordCount > maxWordLength ? "red" : "green" }}
+            >
+              {wordCount}/{maxWordLength}
+            </span>
+          )}
+        </div>
         {variant === "regular" ? (
           <input
             {...register(field)}

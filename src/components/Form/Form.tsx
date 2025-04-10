@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
 import useFormStatus from "@/hooks/useFormStatus"
 import { handleSubmitForm } from "@/utilities"
-import CheckingFormStatus from "./CheckingFormStatus"
+import CheckingFormStatus from "../CheckingFormStatus/CheckingFormStatus"
 import FormClosed from "../FormClosed/FormClosed"
 import schema, { FormData } from "./form-schema"
 import TextInput from "./TextInput"
@@ -22,6 +22,7 @@ const Form: React.FC<Props> = ({ setHasSubmitted }) => {
   const {
     register,
     handleSubmit,
+    watch,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
@@ -52,6 +53,8 @@ const Form: React.FC<Props> = ({ setHasSubmitted }) => {
         field='description'
         errorMessage={errors.description?.message}
         variant='large'
+        value={watch("description")}
+        maxWordLength={25}
       />
       <div className='grid mb-5 grid-cols-1 lg:grid-cols-2 gap-y-4 gap-x-13'>
         <TextInput

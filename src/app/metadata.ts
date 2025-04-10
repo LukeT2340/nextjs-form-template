@@ -66,7 +66,7 @@ export const siteMetadata = {
   other: {
     "og:title": config.immersiveTitle,
     "og:description": config.immersiveDescription,
-    "og:site_name": "MASTHEAD",
-    masthead: "smh",
+    "og:site_name": config.masthead.toUpperCase(),
+    masthead: config.masthead,
   },
 }

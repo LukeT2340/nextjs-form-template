@@ -1,6 +1,6 @@
 import Masthead from "@/components/Masthead"
-import "./globals.css"
 import { siteMetadata } from "./metadata"
+import "./globals.css"
 
 export const metadata = siteMetadata
 
