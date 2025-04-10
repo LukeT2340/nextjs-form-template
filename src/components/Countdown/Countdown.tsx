@@ -25,10 +25,10 @@ const Countdown = () => {
       const seconds = Math.floor((difference % (1000 * 60)) / 1000)
 
       const parts: string[] = ["Competition closes in "]
-      if (days > 0) parts.push(`${days} days`)
-      if (hours > 0) parts.push(`${hours} hours`)
-      if (minutes > 0) parts.push(`${minutes} minutes`)
-      parts.push(`${seconds} seconds`)
+      if (days > 0) parts.push(`${days} day${days > 1 ? "s" : ""}`)
+      if (hours > 0) parts.push(`${hours} hour${hours > 1 ? "s" : ""}`)
+      if (minutes > 0) parts.push(`${minutes} minute${minutes > 1 ? "s" : ""}`)
+      parts.push(`${seconds} second${seconds > 1 ? "s" : ""}`)
 
       setTimeLeft(parts.join(" "))
     }
