@@ -7,12 +7,10 @@ import axios from "axios"
  */
 const useFormStatus = (): { formIsOpen: boolean; checkingStatus: boolean } => {
   const [formIsOpen, setFormIsOpen] = useState<boolean>(false)
-  const [checkingStatus, setCheckingStatus] = useState<boolean>(false)
+  const [checkingStatus, setCheckingStatus] = useState<boolean>(true)
 
   useEffect(() => {
     const fetchFormStatus = async () => {
-      setCheckingStatus(true)
-
       try {
         const response = await axios.get("/api/check-status")
         setFormIsOpen(response.status === 200)

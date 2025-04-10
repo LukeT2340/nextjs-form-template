@@ -4,13 +4,13 @@ import { useState } from "react"
 import { AnimatePresence, motion } from "framer-motion"
 import { ToastContainer } from "react-toastify"
 import Form from "@/components/Form"
-import FormSubmitted from "@/components/Form/FormSubmitted"
+import FormSubmitted from "@/components/FormSubmitted/FormSubmitted"
 
 const SectionOne: React.FC = () => {
   const [submitted, setSubmitted] = useState<boolean>(false)
 
   return (
-    <section className="section-one h-[calc(100vh-44px)] flex items-center justify-center bg-cover bg-no-repeat bg-[url('/assets/images/form-background.jpg')]">
+    <section className="section-one pt-40 lg:p-0 px-10 lg:h-[calc(100vh-44px)] flex items-center justify-center bg-cover bg-no-repeat bg-[url('/assets/images/form-background.jpg')]">
       <AnimatePresence mode='wait'>
         {submitted ? (
           <motion.div
@@ -26,8 +26,7 @@ const SectionOne: React.FC = () => {
         ) : (
           <motion.div
             key='form'
-            className='bg-form-background rounded-[7px] text-center py-[40px] px-[75px]'
-            initial={{ opacity: 0, x: "50vw" }}
+            className='bg-form-background  rounded-[7px] text-center py-[25px] lg:py-[40px] px-[20px] lg:px-[75px]'
             animate={{ opacity: 1, x: "0vw" }}
             exit={{ opacity: 0, x: "-50vw" }}
             transition={{ duration: 0.6, ease: "easeInOut", delay: 0.5 }}

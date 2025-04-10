@@ -17,10 +17,9 @@ const FormSubmitted: React.FC = () => {
       </div>
       <div className='flex items-center justify-center gap-5'>
         <iframe
-          src='https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fbrandedcontent.smh.com.au%2Fscape%2Fyour-first-home-away-from-home%2F&layout&size&width=77&height=20&appId'
-          width='77'
-          height='20'
-          style={{ border: "none", overflow: "hidden" }}
+          src='https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fbrandedcontent.smh.com.au%2Fscape%2F&layout=button&size=large&width=100&height=28&appId'
+          width='100'
+          height='28'
           allowFullScreen={true}
           allow='autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share'
         ></iframe>

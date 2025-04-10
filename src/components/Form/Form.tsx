@@ -3,11 +3,10 @@
 import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
-import { motion } from "framer-motion"
 import useFormStatus from "@/hooks/useFormStatus"
 import { handleSubmitForm } from "@/utilities"
 import CheckingFormStatus from "./CheckingFormStatus"
-import FormClosed from "./FormClosed"
+import FormClosed from "../FormClosed/FormClosed"
 import schema, { FormData } from "./form-schema"
 import TextInput from "./TextInput"
 import CheckBox from "./CheckBox"
@@ -18,7 +17,8 @@ interface Props {
 }
 
 const Form: React.FC<Props> = ({ setHasSubmitted }) => {
-  const [loading, setLoading] = useState<boolean>(false)
+  const [submitting, setSubmitting] = useState<boolean>(false)
+  const { formIsOpen, checkingStatus } = useFormStatus()
   const {
     register,
     handleSubmit,
@@ -26,7 +26,6 @@ const Form: React.FC<Props> = ({ setHasSubmitted }) => {
   } = useForm({
     resolver: yupResolver(schema),
   })
-  const { formIsOpen, checkingStatus } = useFormStatus()
 
   if (checkingStatus) {
     return <CheckingFormStatus />
@@ -37,9 +36,9 @@ const Form: React.FC<Props> = ({ setHasSubmitted }) => {
   }
 
   const onSubmit = async (data: FormData) => {
-    setLoading(true)
+    setSubmitting(true)
     setHasSubmitted(await handleSubmitForm(data))
-    setLoading(false)
+    setSubmitting(false)
   }
 
   return (
@@ -54,7 +53,7 @@ const Form: React.FC<Props> = ({ setHasSubmitted }) => {
         errorMessage={errors.description?.message}
         variant='large'
       />
-      <div className='grid mb-5 grid-cols-2 gap-y-4 gap-x-20'>
+      <div className='grid mb-5 grid-cols-1 lg:grid-cols-2 gap-y-4 gap-x-20'>
         <TextInput
           register={register}
           placeholder='First name'
@@ -119,10 +118,10 @@ const Form: React.FC<Props> = ({ setHasSubmitted }) => {
       <button
         type='submit'
         className='bg-theme-green group cursor-pointer mb-5 mx-auto flex justify-center items-center gap-2 w-[180px] h-[45px] rounded-[23px] border'
-        disabled={loading}
+        disabled={submitting}
       >
         <span className='font-extrabold group-hover:scale-125 transition-transform duration-300 uppercase text-[1.4rem] leading-[1.7rem]'>
-          Submit
+          {submitting ? "Submitting..." : "Submit"}
         </span>
         <img
           src={"/assets/images/arrow.svg"}
