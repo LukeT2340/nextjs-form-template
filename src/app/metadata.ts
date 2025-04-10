@@ -2,7 +2,7 @@ import config from "./app.config"
 
 export const siteMetadata = {
   title: config.immersiveTitle,
-  themeColor: "#0A1633",
+  themeColor: config.themeColor,
   icons: {
     icon: "https://brandedcontent.smh.com.au/wp-content/uploads/2018/06/favicon.ico",
     shortcut:
