@@ -44,7 +44,7 @@ const Form: React.FC<Props> = ({ setHasSubmitted }) => {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form data-testid='form' onSubmit={handleSubmit(onSubmit)}>
       <Countdown />
       <div className='max-w-[524px] mx-auto mb-10'>
         <h2>In 25 words or less, tell us ______</h2>
