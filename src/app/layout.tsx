@@ -1,14 +1,8 @@
 import Masthead from "@/components/Masthead"
 import "./globals.css"
+import { siteMetadata } from "./metadata"
 
-export const metadata = {
-  title: "My Page",
-  themeColor: "#0A1633",
-  other: {
-    "og:site_name": "MASTHEAD",
-    masthead: "smh",
-  },
-}
+export const metadata = siteMetadata
 
 export default function RootLayout({
   children,

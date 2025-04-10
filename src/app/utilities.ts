@@ -1,4 +1,4 @@
-import config from "@/app/api.config"
+import config from "@/app/app.config"
 
 export const competitionHasClosed = (): boolean => {
   const now = new Date()

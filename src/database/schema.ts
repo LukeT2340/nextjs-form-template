@@ -15,7 +15,7 @@ const formDataTable = pgTable("form_data", {
 export default formDataTable
 
 /**
- * To update database structure, change it here then
+ * To update database structure change it here then do
  * yarn generate
  * npx drizzle-kit push
  */
