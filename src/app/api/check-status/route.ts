@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server"
+import { NextRequest, NextResponse } from "next/server"
 import config from "@/app/form.config"
 
 export const competitionHasClosed = (): boolean => {
@@ -7,7 +7,7 @@ export const competitionHasClosed = (): boolean => {
   return now > closeDate
 }
 
-export async function GET(request: Request) {
+export async function GET(request: NextRequest) {
   console.log(request) // This is to get rid of the "unused variable" error. Need to find a better solution
 
   try {
