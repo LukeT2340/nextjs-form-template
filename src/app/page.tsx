@@ -1,9 +1,9 @@
-import SectionOne from "./sections/SectionOne"
+import SectionOne from "@/components/SectionOne"
 
 export default function Home() {
-	return (
-		<div>
-			<SectionOne />
-		</div>
-	)
+  return (
+    <div>
+      <SectionOne />
+    </div>
+  )
 }

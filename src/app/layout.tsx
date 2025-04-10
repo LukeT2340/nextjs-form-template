@@ -1,4 +1,4 @@
-import Masthead from "./components/Masthead"
+import Masthead from "@/components/Masthead"
 import "./globals.css"
 
 export const metadata = {
