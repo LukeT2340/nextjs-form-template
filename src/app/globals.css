@@ -37,3 +37,10 @@ h2 {
   font-weight: bold;
   letter-spacing: -0.01rem;
 }
+
+h3 {
+  font-size: 1rem;
+  line-height: 1.4rem;
+  font-weight: bold;
+  letter-spacing: -0.01rem;
+}
