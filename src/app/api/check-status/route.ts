@@ -8,7 +8,8 @@ export const competitionHasClosed = (): boolean => {
 }
 
 export async function GET(request: Request) {
-  /* eslint-disable-line @typescript-eslint/no-unused-vars */
+  console.log(request) // This is to get rid of the "unused variable" error. Need to find a better solution
+
   try {
     if (competitionHasClosed()) {
       return NextResponse.json({ message: "Form is closed" }, { status: 400 })
