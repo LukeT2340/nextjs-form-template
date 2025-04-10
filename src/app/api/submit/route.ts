@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server"
 import { FormData } from "@/components/Form/form-schema"
 import { addSubmission, submissionExists } from "@/database/queries"
 import config from "@/app/form.config"
-import { competitionHasClosed } from "../check-status/route"
+import { competitionHasClosed } from "@/utilities"
 
 export async function POST(req: NextRequest) {
   try {
