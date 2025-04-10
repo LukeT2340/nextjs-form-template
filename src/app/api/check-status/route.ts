@@ -8,7 +8,7 @@ export const competitionHasClosed = (): boolean => {
 }
 
 export async function GET(request: Request) {
-  // eslint-disable-line no-unused-vars
+  /* eslint-disable-line @typescript-eslint/no-unused-vars */
   try {
     if (competitionHasClosed()) {
       return NextResponse.json({ message: "Form is closed" }, { status: 400 })
