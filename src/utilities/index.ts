@@ -4,8 +4,8 @@ import { FormData } from "@/components/Form/form-schema"
 
 export const handleSubmitForm = async (data: FormData): Promise<boolean> => {
   try {
-    await axios.post(`/api/submit`, data)
-    return true
+    const response = await axios.post(`/api/submit`, data)
+    return response.status === 201
   } catch (error) {
     const axiosError = error as AxiosError<{ message: string }>
     toast(
