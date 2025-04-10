@@ -6,7 +6,7 @@ export const metadata = {
   themeColor: "#0A1633",
   other: {
     "og:site_name": "MASTHEAD",
-    masthead: "9now",
+    masthead: "smh",
   },
 }
 

@@ -5,11 +5,13 @@ export default function setupMasthead() {
   masthead({
     headerConfig: {
       bgColor: "black",
-      textColor: "#3698e9",
+      textColor: "white",
+      logoColor: "white",
     },
     footerConfig: {
       bgColor: "black",
-      textColor: "#3698e9",
+      textColor: "white",
+      logoColor: "white",
     },
   })
 }
