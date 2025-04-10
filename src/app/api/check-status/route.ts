@@ -7,7 +7,7 @@ export const competitionHasClosed = (): boolean => {
   return now > closeDate
 }
 
-export async function GET() {
+export async function GET(request: Request) {
   try {
     if (competitionHasClosed()) {
       return NextResponse.json({ message: "Form is closed" }, { status: 400 })
