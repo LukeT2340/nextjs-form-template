@@ -7,8 +7,8 @@ export const competitionHasClosed = (): boolean => {
   return now > closeDate
 }
 
-// @ts-ignore - Required by Next.js Route Handler
-export async function GET(_request: Request) {
+export async function GET(request: Request) {
+  // eslint-disable-line no-unused-vars
   try {
     if (competitionHasClosed()) {
       return NextResponse.json({ message: "Form is closed" }, { status: 400 })
