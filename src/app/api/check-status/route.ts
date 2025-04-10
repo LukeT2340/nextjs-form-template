@@ -1,5 +1,5 @@
-import { competitionHasClosed } from "@/utilities"
 import { NextResponse } from "next/server"
+import { competitionHasClosed } from "../../utilities"
 
 export async function GET() {
   try {

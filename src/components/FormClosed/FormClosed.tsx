@@ -1,7 +1,7 @@
 const FormClosed: React.FC = () => {
   return (
     <div>
-      <h1>Form Closed</h1>
+      <h2>Competition Closed</h2>
     </div>
   )
 }

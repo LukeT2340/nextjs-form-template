@@ -1,7 +1,6 @@
 import axios, { AxiosError } from "axios"
 import { toast } from "react-toastify"
 import { FormData } from "@/components/Form/form-schema"
-import config from "@/app/form.config"
 
 export const handleSubmitForm = async (data: FormData): Promise<boolean> => {
   try {
@@ -16,10 +15,4 @@ export const handleSubmitForm = async (data: FormData): Promise<boolean> => {
     )
     return false
   }
-}
-
-export const competitionHasClosed = (): boolean => {
-  const now = new Date()
-  const closeDate = config.closeDate
-  return now > closeDate
 }

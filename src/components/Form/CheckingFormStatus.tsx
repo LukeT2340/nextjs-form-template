@@ -1,7 +1,7 @@
 const CheckingFormStatus: React.FC = () => {
   return (
     <div>
-      <h1>Checking form status...</h1>
+      <h2>Checking form status...</h2>
     </div>
   )
 }

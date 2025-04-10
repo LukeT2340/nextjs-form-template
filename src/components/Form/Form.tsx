@@ -53,7 +53,7 @@ const Form: React.FC<Props> = ({ setHasSubmitted }) => {
         errorMessage={errors.description?.message}
         variant='large'
       />
-      <div className='grid mb-5 grid-cols-1 lg:grid-cols-2 gap-y-4 gap-x-20'>
+      <div className='grid mb-5 grid-cols-1 lg:grid-cols-2 gap-y-4 gap-x-13'>
         <TextInput
           register={register}
           placeholder='First name'

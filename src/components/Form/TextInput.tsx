@@ -23,7 +23,7 @@ const TextInput: React.FC<Props> = ({
         {variant === "regular" ? (
           <input
             {...register(field)}
-            className='outline-none border border-input-border rounded-sm p-3 w-full'
+            className='outline-none border border-input-border rounded-sm p-3 w-full h-17'
           />
         ) : (
           <textarea

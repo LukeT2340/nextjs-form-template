@@ -21,14 +21,14 @@ const Dropdown: React.FC<Props> = ({
       <div className='w-full text-[1.3rem]'>
         <label
           htmlFor={field}
-          className='block cursor-pointer text-[1.4rem] mb-2'
+          className='block font-extrabold cursor-pointer mb-2'
         >
-          {placeholder}
+          {placeholder}*
         </label>
         <select
           id={field}
           {...register(field)}
-          className='border border-input-border rounded-sm p-3 w-full text-[1.3rem]'
+          className='outline-none border border-input-border rounded-sm p-3 w-full h-17'
         >
           <option value=''>Select an option</option>
           {options.map((option, index) => (

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import axios from "axios"
 
 /**
- * @description Custom hook to check if the competition is open.
+ * @description Custom hook to check if the competition is open. Define close date in the api.config.ts config.
  * @returns { formIsOpen: boolean; checkingStatus: boolean; } - Returns true if the form is open, false otherwise.
  */
 const useFormStatus = (): { formIsOpen: boolean; checkingStatus: boolean } => {
