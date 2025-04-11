@@ -1,45 +1,59 @@
 import React from "react"
-import { test, it, expect, beforeEach, vi, beforeAll, Mock, describe } from "vitest"
-import { render, screen, fireEvent, within, waitFor } from "@testing-library/react"
+import { describe, it, expect, vi } from "vitest"
+import { render, screen } from "@testing-library/react"
+import userEvent from "@testing-library/user-event"
 import Form from "./Form"
 
-// const mockRefresh = vi.fn()
-// const mockPush = vi.fn()
+vi.mock("@/hooks/useFormStatus", () => ({
+	default: () => ({
+		formIsOpen: true,
+		checkingStatus: false,
+	}),
+}))
 
-// vi.mock("next/navigation", () => ({
-//   useRouter: () => ({
-//     refresh: mockRefresh,
-//     push: mockPush,
-//   }),
-// }))
+describe("Form component", () => {
+	it("should render the form correctly", () => {
+		render(<Form setHasSubmitted={() => null} />)
+		const form = screen.getByTestId("form")
+		expect(form).toBeInTheDocument()
+	})
 
-// vi.mock("@/database", () => ({
-//   createLookbookEntry: vi.fn().mockResolvedValue(true),
-// }))
+	it("renders all form fields", () => {
+		render(<Form setHasSubmitted={() => null} />)
 
-// beforeAll(() => {
-//   Element.prototype.hasPointerCapture = () => false
-//   Element.prototype.scrollIntoView = () => {}
-// })
+		expect(screen.getByTestId("description")).toBeInTheDocument()
+		expect(screen.getByTestId("firstName")).toBeInTheDocument()
+		expect(screen.getByTestId("lastName")).toBeInTheDocument()
+		expect(screen.getByTestId("email")).toBeInTheDocument()
+		expect(screen.getByTestId("mobile")).toBeInTheDocument()
+		expect(screen.getByTestId("state")).toBeInTheDocument()
+		expect(screen.getByTestId("postcode")).toBeInTheDocument()
+	})
 
-// beforeEach(() => {
-//   vi.resetAllMocks()
+	it("shows validation errors when submitting empty form", async () => {
+		render(<Form setHasSubmitted={() => null} />)
+		const submitButton = screen.getByRole("button", { name: /submit/i })
+		await userEvent.click(submitButton)
 
-//   // mock the global fetch function
-//   global.fetch = vi.fn(() =>
-//     Promise.resolve({
-//       ok: true,
-//       json: () => Promise.resolve({}),
-//     })
-//   ) as unknown as typeof fetch
-// })
-
-describe("these tests are for checking the form component, making sure each field is rendering the way we expect and that the data is submitting to the correct endpoint with the correct object shape", async () => {
-  it("should render the form correctly", async () => {
-    render(<Form />)
-    await waitFor(() => {
-      const form = screen.getByTestId("form")
-      expect(form).toBeInTheDocument()
-    })
-  })
+		expect(
+			await screen.findByText("Description must be 25 words or less")
+		).toBeInTheDocument()
+		expect(
+			await screen.findByText("First name is required")
+		).toBeInTheDocument()
+		expect(await screen.findByText("Last name is required")).toBeInTheDocument()
+		expect(await screen.findByText("Email is required")).toBeInTheDocument()
+		expect(
+			await screen.findByText("Mobile number must be 10 digits")
+		).toBeInTheDocument()
+		expect(
+			await screen.findByText("State must be NSW, QLD, or NT")
+		).toBeInTheDocument()
+		expect(
+			await screen.findByText("Postcode must be a 4-digit number")
+		).toBeInTheDocument()
+		expect(
+			await screen.findByText("You must accept the terms and conditions")
+		).toBeInTheDocument()
+	})
 })
