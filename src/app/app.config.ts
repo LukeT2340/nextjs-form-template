@@ -1,4 +1,15 @@
-const config = {
+type Config = {
+	allowMultipleSubmissions: boolean
+	closeDate: Date
+	immersiveTitle: string
+	immersiveDescription: string
+	canonical: string
+	socialShareImage: string
+	masthead: string
+	themeColor: string
+}
+
+const config: Config = {
 	allowMultipleSubmissions: false,
 	closeDate: new Date("2025-04-11T17:00:00+10:00"),
 	immersiveTitle: "BRAND - HEADING - SUBHEADING - MASTHEAD",
