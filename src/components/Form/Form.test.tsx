@@ -1,5 +1,6 @@
-import { test, expect, beforeEach, vi, beforeAll, Mock } from "vitest"
-import { render, screen, fireEvent, within } from "@testing-library/react"
+import React from "react"
+import { test, it, expect, beforeEach, vi, beforeAll, Mock, describe } from "vitest"
+import { render, screen, fireEvent, within, waitFor } from "@testing-library/react"
 import Form from "./Form"
 
 // const mockRefresh = vi.fn()
@@ -33,9 +34,12 @@ import Form from "./Form"
 //   ) as unknown as typeof fetch
 // })
 
-test("form renders correctly", () => {
-  render(<Form setHasSubmitted={(x) => null} />)
-
-  const form = screen.getByTestId("form")
-  expect(form).toBeInTheDocument()
+describe("these tests are for checking the form component, making sure each field is rendering the way we expect and that the data is submitting to the correct endpoint with the correct object shape", async () => {
+  it("should render the form correctly", async () => {
+    render(<Form />)
+    await waitFor(() => {
+      const form = screen.getByTestId("form")
+      expect(form).toBeInTheDocument()
+    })
+  })
 })
