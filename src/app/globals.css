@@ -1,0 +1,46 @@
+@import "tailwindcss";
+@import url("https://use.typekit.net/ysl2uas.css");
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --form-background: #f1fff1;
+  --input-border: #666c6b;
+  --theme-green: #ccff00;
+  font-size: 10px;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-form-background: var(--form-background);
+  --color-input-border: var(--input-border);
+  --color-theme-green: var(--theme-green);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: "soleil", Arial, Helvetica, sans-serif;
+}
+
+h2 {
+  font-size: 2.1rem;
+  line-height: 2.6rem;
+  font-weight: bold;
+  letter-spacing: -0.01rem;
+}
+
+h3 {
+  font-size: 1rem;
+  line-height: 1.4rem;
+  font-weight: bold;
+  letter-spacing: -0.01rem;
+}
