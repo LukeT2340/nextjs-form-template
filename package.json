@@ -21,7 +21,7 @@
     "framer-motion": "^12.6.3",
     "next": "15.2.4",
     "pg": "^8.14.1",
-    "powered-immersive-header": "^0.0.24",
+    "powered-immersive-header": "^0.0.25",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-hook-form": "^7.55.0",
