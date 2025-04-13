@@ -12,10 +12,11 @@ export const handleSubmitForm = async (data: FormData): Promise<boolean> => {
     })
 
     const dataResponse = await response.json()
-    console.log("dataResponse", dataResponse)
     if (!response.ok) {
-      console.error(`Error submitting form: ${JSON.stringify(dataResponse.error)}`)
-      toast.error(dataResponse.error?.message || "error submitting form")
+      console.error(
+        `Error submitting form: ${JSON.stringify(dataResponse.error)}`
+      )
+      toast.error(dataResponse.message || "error submitting form")
       return false
     }
 
@@ -26,8 +27,8 @@ export const handleSubmitForm = async (data: FormData): Promise<boolean> => {
 
     return true
   } catch (error) {
-    console.error("Error submitting form", error)
-    const errorMessage = error instanceof Error ? error.message : "Error submitting form"
+    const errorMessage =
+      error instanceof Error ? error.message : "Error submitting form"
     toast.error(errorMessage)
     return false
   }
