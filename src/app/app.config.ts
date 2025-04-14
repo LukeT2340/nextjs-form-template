@@ -14,9 +14,9 @@ const config: AppConfig = {
   closeDate: new Date("2025-04-17T17:00:00+10:00"),
   immersiveTitle: "BRAND - HEADING - SUBHEADING - MASTHEAD",
   immersiveDescription: "IMMERSIVE DESCRIPTION",
-  canonical: "https://brandedcontent.smh.com.au/brand/heading",
+  canonical: "https://live-native-paid-content.pantheonsite.io/brand/heading",
   socialShareImage:
-    "https://brandedcontent.smh.com.au/inc/social/SOCIAL-SHARE-IMAGE.JPG",
+    "https://live-native-paid-content.pantheonsite.io/inc/social/SOCIAL-SHARE-IMAGE.JPG",
   masthead: "wwos",
   themeColor: "#0A1633",
 };
