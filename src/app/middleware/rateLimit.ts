@@ -13,6 +13,8 @@ export default function rateLimitMiddleware(handler) {
     const ip = req.headers.get("x-vercel-forwarded-for");
     console.log(req.headers);
     console.log(ip);
+    console.log(rateLimitMap);
+
     if (!ip || ip.length === 0) {
       return NextResponse.json(
         { message: "Unable to verify submission source." },
@@ -20,7 +22,6 @@ export default function rateLimitMiddleware(handler) {
       );
     }
 
-    console.log(rateLimitMap);
     const limit = 5;
     const windowMs = 60 * 1000;
 
