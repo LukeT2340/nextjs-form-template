@@ -4,7 +4,11 @@ const rateLimitMap = new Map();
 
 export default function rateLimitMiddleware(handler) {
   return (req, res) => {
-    const ip = req.headers["x-forwarded-for"];
+    if (process.env.NODE_ENV === "development") {
+      return handler(req, res);
+    }
+
+    const ip = req.headers["x-vercel-forwarded-for"];
     console.log(req.headers);
     if (!ip || ip.length === 0) {
       return NextResponse.json(
