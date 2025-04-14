@@ -17,7 +17,7 @@ const config: AppConfig = {
   canonical: "https://brandedcontent.smh.com.au/brand/heading",
   socialShareImage:
     "https://brandedcontent.smh.com.au/inc/social/SOCIAL-SHARE-IMAGE.JPG",
-  masthead: "smh",
+  masthead: "wwos",
   themeColor: "#0A1633",
 };
 
