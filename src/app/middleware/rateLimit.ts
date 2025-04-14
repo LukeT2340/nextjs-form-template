@@ -1,15 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
-type EdgeHandler = (
-  req: NextRequest,
-  res: NextResponse
-) => Promise<NextResponse> | NextResponse;
+type EdgeHandler = (req: NextRequest) => Promise<NextResponse> | NextResponse;
 
 const rateLimitMap = new Map();
 
 export default function rateLimitMiddleware(handler: EdgeHandler) {
-  return (req: NextRequest, res: NextResponse) => {
+  return (req: NextRequest) => {
     if (process.env.NODE_ENV === "development") {
-      return handler(req, res);
+      return handler(req);
     }
 
     // Adjust header for deployment platform
@@ -49,6 +46,6 @@ export default function rateLimitMiddleware(handler: EdgeHandler) {
 
     ipData.count += 1;
 
-    return handler(req, res);
+    return handler(req);
   };
 }
