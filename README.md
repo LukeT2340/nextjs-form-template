@@ -1,5 +1,7 @@
 # NextJS Typescript Form Template with Neon PostgreSQL DB
 
+This is a template that can be used for immersives that include forms (e.g. competitions).
+
 ## Technologies used
 
 -   NextJS w/ Typescript
