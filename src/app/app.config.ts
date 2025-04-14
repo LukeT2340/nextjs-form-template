@@ -1,4 +1,4 @@
-type Config = {
+type AppConfig = {
   allowMultipleSubmissions: boolean;
   closeDate: Date;
   immersiveTitle: string;
@@ -9,7 +9,7 @@ type Config = {
   themeColor: string;
 };
 
-const config: Config = {
+const config: AppConfig = {
   allowMultipleSubmissions: false,
   closeDate: new Date("2025-04-17T17:00:00+10:00"),
   immersiveTitle: "BRAND - HEADING - SUBHEADING - MASTHEAD",
