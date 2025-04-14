@@ -46,6 +46,8 @@ export async function POST(req: NextRequest): Promise<
       );
     }
 
+    data.email = normalizedEmail;
+
     // Add submission to DB
     await addSubmission(data);
 
