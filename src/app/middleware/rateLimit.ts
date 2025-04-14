@@ -10,6 +10,7 @@ export default function rateLimitMiddleware(handler) {
 
     const ip = req.headers["x-vercel-forwarded-for"];
     console.log(req.headers);
+    console.log(ip);
     if (!ip || ip.length === 0) {
       return NextResponse.json(
         { message: "Unable to verify submission source." },
