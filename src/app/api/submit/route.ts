@@ -2,7 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { FormData } from "@/components/Form/form-schema";
 import { addSubmission, submissionExists } from "@/database/queries";
 import config from "@/app/app.config";
-import { competitionHasClosed, normalizeEmail } from "../../utilities";
+import rateLimit from "@/app/middleware/rateLimit";
+import { competitionHasClosed, normalizeEmail } from "@/app/utilities";
 
 /**
  * @description Endpoint to handle form submission.
@@ -16,11 +17,7 @@ import { competitionHasClosed, normalizeEmail } from "../../utilities";
  * The DATABASE_URL environment variable shouldn't be accessible in the client-side code
  * @returns {Promise<NextResponse>} JSON response indicating success or failure.
  */
-export async function POST(req: NextRequest): Promise<
-  NextResponse<{
-    message: string;
-  }>
-> {
+async function handler(req: NextRequest): Promise<NextResponse> {
   try {
     // Parse the request body
     const data: FormData = await req.json();
@@ -63,3 +60,5 @@ export async function POST(req: NextRequest): Promise<
     );
   }
 }
+
+export const POST = rateLimit(handler);
