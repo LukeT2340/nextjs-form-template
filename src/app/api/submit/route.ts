@@ -12,7 +12,7 @@ import { competitionHasClosed, normalizeEmail } from "../../utilities";
  * 3. Add the submission to the database.
  * 4. Return success or error response.
  *
- * IT SHOULD ONLY BE POSSIBLE TO EDIT THE DATABASE THROUGH THIS ENDPOINT
+ * IT SHOULD ONLY BE POSSIBLE TO EDIT OR READ THE DATABASE THROUGH THIS ENDPOINT
  * The DATABASE_URL environment variable shouldn't be accessible in the client-side code
  * @returns {Promise<NextResponse>} JSON response indicating success or failure.
  */
