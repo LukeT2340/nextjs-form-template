@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
 
 /**
  * @description Custom hook to check if the competition is open. Define close date in the api.config.ts config.
@@ -14,7 +13,15 @@ const useFormStatus = (): { formIsOpen: boolean; checkingStatus: boolean } => {
   useEffect(() => {
     const fetchFormStatus = async () => {
       try {
-        const response = await axios.get("/api/check-status");
+        // Check the status of the competition by making a GET request to the API
+        const response = await fetch("/api/check-status", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+
+        // Set the form status based on the response so we can handle
         setFormIsOpen(response.status === 200);
       } catch (error) {
         setFormIsOpen(false);
