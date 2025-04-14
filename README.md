@@ -32,11 +32,9 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ## Creating and changing the database schema
 
 1. Change schema in **src/database/schema.ts**
-2. ```bash
-   yarn generate
-   ```
-3. Update Neon's schema to match schema.ts
+2. Update Neon's schema to match schema.ts
     ```bash
+    yarn generate
     npx drizzle-kit push
     ```
     Be careful as this could delete existing entries if the new schema isn't compatible with the new scheam. But should warn you before it does
