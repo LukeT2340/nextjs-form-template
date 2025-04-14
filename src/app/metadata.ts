@@ -1,4 +1,4 @@
-import config from "./app.config"
+import config from "./app.config";
 
 export const siteMetadata = {
   title: config.immersiveTitle,
@@ -27,4 +27,4 @@ export const siteMetadata = {
     "og:site_name": config.masthead.toUpperCase(),
     masthead: config.masthead,
   },
-}
+};
