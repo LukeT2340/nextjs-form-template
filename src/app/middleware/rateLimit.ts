@@ -10,6 +10,7 @@ export default function rateLimitMiddleware(handler) {
       return handler(req, res);
     }
 
+    // Adjust header for deployment platform
     const ip = req.headers.get("x-vercel-forwarded-for");
     console.log(req.headers);
     console.log(ip);
