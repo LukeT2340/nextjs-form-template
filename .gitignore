@@ -1,3 +1,18 @@
+<<<<<<< HEAD
+#ignore ide files
+/.idea/
+/.vscode/*
+# Enforce some settings at the workspace to ensure consistency
+# Workspace settings MUST ONLY be those which are generally applicable, not personal settings.
+# Key settings here are things like ensuring text files always end with an empty line, and no trailing spaces.
+!/.vscode/settings.json
+!/.vscode/extensions.json
+/.local-secrets/*
+
+/.env.override
+
+.DS_Store
+=======
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
@@ -39,5 +54,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+<<<<<<< HEAD
 
 .vscode/settings.json
+=======
+>>>>>>> setup-branch
+>>>>>>> 273a6c793f9312583c14f934957c8d1591eff162

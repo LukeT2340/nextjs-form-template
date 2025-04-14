@@ -1,0 +1,4 @@
+# See: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Most changes need to be reviewed by the team that owns the repository
+* @/powered-web

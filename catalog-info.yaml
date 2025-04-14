@@ -1,0 +1,20 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  annotations:
+    backstage.io/edit-url: https://github.com/nine-sales/000-nextjs-typescript-neon-form-template/edit/main/catalog-info.yaml
+    backstage.io/source-location: url:https://github.com/nine-sales/000-nextjs-typescript-neon-form-template/tree/main/
+    backstage.io/source-template: template:default/skeleton-9powered-template
+    backstage.io/techdocs-ref: dir:.
+    backstage.io/view-url: https://github.com/nine-sales/000-nextjs-typescript-neon-form-template/blob/main/catalog-info.yaml
+    github.com/project-slug: nine-sales/000-nextjs-typescript-neon-form-template
+  description: |
+    A Next JS template for immersives that include forms that uses Neon's Postgres SQL database to store form data
+  name: 000-nextjs-typescript-neon-form-template
+  namespace: default
+spec:
+  lifecycle: experimental
+  memberOf: []
+  owner: group:powered-web
+  system: 
+  type: service
