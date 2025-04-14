@@ -4,12 +4,14 @@ const rateLimitMap = new Map();
 
 export default function rateLimitMiddleware(handler) {
   return (req, res) => {
+    // There won't be a req.headers["x-vercel-forwarded-for"] header in local development
+    // so we can skip the rate limiting check
     if (process.env.NODE_ENV === "development") {
       return handler(req, res);
     }
 
     const ip = req.headers["x-vercel-forwarded-for"];
-    console.log(req.headers);
+    console.log(req.headers.headers["x-vercel-forwarded-for"]);
     console.log(ip);
     if (!ip || ip.length === 0) {
       return NextResponse.json(
