@@ -23,7 +23,7 @@ export default function rateLimitMiddleware(handler: EdgeHandler) {
     }
 
     const limit = 5; // Number of allowed requests
-    const windowMs = 5 * 60 * 1000; // 5 minutes in milliseconds
+    const windowMs = 1 * 60 * 1000; // 1 minutes in milliseconds
 
     if (!rateLimitMap.has(ip)) {
       rateLimitMap.set(ip, {
@@ -40,6 +40,7 @@ export default function rateLimitMiddleware(handler: EdgeHandler) {
     }
 
     if (ipData.count >= limit) {
+      console.log(`Rate limit exceeded for IP: ${ip}, 1 minute cooldown`);
       return NextResponse.json(
         { message: "Too many submission attempts. Please try again later." },
         { status: 429 }
