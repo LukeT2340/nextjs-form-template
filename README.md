@@ -1,4 +1,4 @@
-# NextJS Typescript Template with Neon PostgreSQL DB
+# NextJS Typescript Form Template with Neon PostgreSQL DB
 
 ## Technologies used
 
