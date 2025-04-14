@@ -38,5 +38,3 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
     npx drizzle-kit push
     ```
     Note: Be careful as this could delete existing entries if existing data isn't compatible with the new schema. But should warn you before it does
-
-## Author: Luke Thompson
