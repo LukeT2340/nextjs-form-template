@@ -21,7 +21,7 @@ const useFormStatus = (): { formIsOpen: boolean; checkingStatus: boolean } => {
           },
         });
 
-        // Set the form status based on the response so we can handle
+        // Set the form status based on the response so we can handle it in the UI
         setFormIsOpen(response.status === 200);
       } catch (error) {
         setFormIsOpen(false);
