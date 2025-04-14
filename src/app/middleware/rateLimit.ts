@@ -4,7 +4,7 @@ const rateLimitMap = new Map();
 
 export default function rateLimitMiddleware(handler) {
   return (req, res) => {
-    const ip = req.headers["x-forwarded-for"] || req.connection.remoteAddress;
+    const ip = req.headers["x-forwarded-for"] || "unknown";
     const limit = 5;
     const windowMs = 60 * 1000;
 
