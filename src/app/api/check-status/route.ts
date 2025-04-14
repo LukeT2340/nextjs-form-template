@@ -12,12 +12,10 @@ import { competitionHasClosed } from "../../utilities";
  */
 export async function GET(): Promise<NextResponse> {
   try {
-    // Check if the competition has closed
     if (competitionHasClosed()) {
       return NextResponse.json({ message: "Form is closed" }, { status: 403 });
     }
 
-    // Competition is open response
     return NextResponse.json(
       { message: "Competition is open" },
       { status: 200 }

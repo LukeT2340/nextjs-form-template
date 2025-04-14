@@ -1,20 +1,19 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
+type EdgeHandler = (
+  req: NextRequest,
+  res: NextResponse
+) => Promise<NextResponse> | NextResponse;
 
 const rateLimitMap = new Map();
 
-export default function rateLimitMiddleware(handler) {
-  return (req, res) => {
-    // There won't be a req.headers["x-vercel-forwarded-for"] header in local development
-    // so we can skip the rate limiting check
+export default function rateLimitMiddleware(handler: EdgeHandler) {
+  return (req: NextRequest, res: NextResponse) => {
     if (process.env.NODE_ENV === "development") {
       return handler(req, res);
     }
 
     // Adjust header for deployment platform
     const ip = req.headers.get("x-vercel-forwarded-for");
-    console.log(req.headers);
-    console.log(ip);
-    console.log(rateLimitMap);
 
     if (!ip || ip.length === 0) {
       return NextResponse.json(
@@ -23,8 +22,8 @@ export default function rateLimitMiddleware(handler) {
       );
     }
 
-    const limit = 5;
-    const windowMs = 60 * 1000;
+    const limit = 5; // Number of allowed requests
+    const windowMs = 5 * 60 * 1000; // 5 minutes in milliseconds
 
     if (!rateLimitMap.has(ip)) {
       rateLimitMap.set(ip, {
