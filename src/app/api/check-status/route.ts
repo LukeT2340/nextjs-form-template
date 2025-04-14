@@ -4,7 +4,7 @@ import { competitionHasClosed } from "../../utilities"
 export async function GET() {
   try {
     if (competitionHasClosed()) {
-      return NextResponse.json({ message: "Form is closed" }, { status: 400 })
+      return NextResponse.json({ message: "Form is closed" }, { status: 403 })
     }
 
     return NextResponse.json({ message: "Form is open" }, { status: 200 })
