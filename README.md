@@ -37,4 +37,4 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
     yarn generate
     npx drizzle-kit push
     ```
-    Be careful as this could delete existing entries if the new schema isn't compatible with the new scheam. But should warn you before it does
+    Be careful as this could delete existing entries if existing data isn't compatible with the new schema. But should warn you before it does
