@@ -11,6 +11,12 @@ export const competitionHasClosed = (): boolean => {
   return now > closeDate;
 };
 
+/**
+ * @description Utility function to normalize email addresses.
+ * This function converts the email to lowercase and removes dots and everything after the plus sign for Gmail addresses.
+ * @param {string} email - The email address to normalize.
+ * @returns {string} - The normalized email address.
+ */
 export const normalizeEmail = (email: string): string => {
   email = email.toLowerCase();
   const [localPart, domain] = email.split("@");

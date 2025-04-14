@@ -32,7 +32,7 @@ export async function POST(req: NextRequest): Promise<
         { status: 400 }
       );
 
-    // Convert to lowercase and remove fullstops
+    // Convert to lowercase and remove fullstops from GMAIL addresses
     const normalizedEmail = normalizeEmail(data.email);
 
     // Check if a submission already exists for user (if not allowed)
