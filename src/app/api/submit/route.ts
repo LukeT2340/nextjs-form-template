@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { FormData } from "@/components/Form/form-schema";
 import { addSubmission, submissionExists } from "@/database/queries";
 import config from "@/app/app.config";
-import { competitionHasClosed } from "../../utilities";
+import { competitionHasClosed, normalizeEmail } from "../../utilities";
 
 /**
  * @description Endpoint to handle form submission.
@@ -32,10 +32,13 @@ export async function POST(req: NextRequest): Promise<
         { status: 400 }
       );
 
+    // Convert to lowercase and remove fullstops
+    const normalizedEmail = normalizeEmail(data.email);
+
     // Check if a submission already exists for user (if not allowed)
     if (
       !config.allowMultipleSubmissions &&
-      (await submissionExists(data.email))
+      (await submissionExists(normalizedEmail))
     ) {
       return NextResponse.json(
         { message: "An entry has already been submitted for this email." },
