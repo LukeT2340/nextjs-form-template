@@ -2,7 +2,6 @@ import config from "./app.config";
 
 export const siteMetadata = {
   title: config.immersiveTitle,
-  themeColor: config.themeColor,
   alternates: {
     canonical: config.canonical,
   },

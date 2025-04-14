@@ -6,7 +6,7 @@
   --foreground: #171717;
   --form-background: #f1fff1;
   --input-border: #666c6b;
-  --theme-green: #ccff00;
+  --theme: #ccff00;
   font-size: 10px;
 }
 
@@ -15,7 +15,7 @@
   --color-foreground: var(--foreground);
   --color-form-background: var(--form-background);
   --color-input-border: var(--input-border);
-  --color-theme-green: var(--theme-green);
+  --color-theme: var(--theme);
 }
 
 body {

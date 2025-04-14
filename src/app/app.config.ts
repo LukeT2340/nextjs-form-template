@@ -6,7 +6,6 @@ type AppConfig = {
   canonical: string;
   socialShareImage: string;
   masthead: string;
-  themeColor: string;
 };
 
 const config: AppConfig = {
@@ -17,8 +16,7 @@ const config: AppConfig = {
   canonical: "https://live-native-paid-content.pantheonsite.io/brand/heading",
   socialShareImage:
     "https://live-native-paid-content.pantheonsite.io/inc/social/SOCIAL-SHARE-IMAGE.JPG",
-  masthead: "wwos",
-  themeColor: "#0A1633",
+  masthead: "smh",
 };
 
 export default config;

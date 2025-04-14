@@ -16,5 +16,5 @@ spec:
   lifecycle: experimental
   memberOf: []
   owner: group:powered-web
-  system: 
+  system: "9powered"
   type: service

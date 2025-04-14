@@ -3841,10 +3841,10 @@ postgres-range@^1.1.1:
   resolved "https://registry.npmjs.org/postgres-range/-/postgres-range-1.1.4.tgz"
   integrity sha512-i/hbxIE9803Alj/6ytL7UHQxRvZkI9O4Sy+J3HGc4F4oo/2eQAjTSNJ0bfxyse3bH0nuVesCk+3IRLaMtG3H6w==
 
-powered-immersive-header@^0.0.25:
-  version "0.0.25"
-  resolved "https://registry.yarnpkg.com/powered-immersive-header/-/powered-immersive-header-0.0.25.tgz#1a3586495d15639210c83563cab426a8da07e760"
-  integrity sha512-TL3PjMWnjcTshThqGIOd9Wz/kx5nEAA96YQfP7QG2mRWlA/3jmLEm2wJMZlfg1ohvNfqE+Tr4vPhde9RoHqerQ==
+powered-immersive-header@^0.0.26:
+  version "0.0.26"
+  resolved "https://registry.yarnpkg.com/powered-immersive-header/-/powered-immersive-header-0.0.26.tgz#7e4adf83ae6fc0cc4e8457467f223bc13a80940a"
+  integrity sha512-SMUTm8w+FtTxOzSTXe0Pg2+X9C4EHIpnIsR5zbhEwwIUqAAquDX7AwYxi+BYqLI8aEMvSt45VJ+H3Ecqyj0Slg==
   dependencies:
     "@poppanator/sveltekit-svg" "^4.2.1"
     "@tailwindcss/postcss" "^4.1.3"

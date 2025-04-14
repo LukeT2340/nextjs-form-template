@@ -25,7 +25,7 @@ export async function POST(req: NextRequest): Promise<
     // Parse the request body
     const data: FormData = await req.json();
 
-    // Check status of competition again (because direct post requests can bypass the check-status endpoint)
+    // Check status of competition again (because direct post requests to this endpoint can bypass the check-status endpoint)
     if (competitionHasClosed())
       return NextResponse.json(
         { message: "The competition has closed." },
