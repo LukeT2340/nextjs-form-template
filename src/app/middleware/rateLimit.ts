@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
 
-// @ts-ignore
 const rateLimitMap = new Map();
 
 export default function rateLimitMiddleware(handler) {
