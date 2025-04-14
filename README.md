@@ -35,7 +35,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 2. ```bash
    yarn generate
    ```
-3. Change neon db schema
+3. Update Neon's schema to match schema.ts
     ```bash
     npx drizzle-kit push
     ```
